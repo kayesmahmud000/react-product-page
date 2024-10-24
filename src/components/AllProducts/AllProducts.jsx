@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import SingleProduct from "../singleProduct/SingleProduct";
+import PropTypes from 'prop-types';
 
-const AllProducts = () => {
+const AllProducts = ({handleSelectedProduct}) => {
     const [Products, setProducts]=useState([])
 
     useEffect(()=>{
@@ -15,11 +16,16 @@ const AllProducts = () => {
             <p>Product {Products.length}</p>
             <div>
                 {
-                    Products.map(product=><SingleProduct key={product.id} product={product}></SingleProduct>)
+                    Products.map(product=><SingleProduct handleSelectedProduct={handleSelectedProduct} key={product.id} product={product}></SingleProduct>)
                 }
             </div>
         </div>
     );
 };
+AllProducts.propTypes = {
+    
+    handleSelectedProduct:PropTypes.func
+};
+
 
 export default AllProducts;

@@ -2,7 +2,7 @@ import About from "../about/About";
 import Cart from "../cart/cart";
 import PropTypes from 'prop-types';
 
-const Carts = ({handleActiveBtn, isActive}) => {
+const Carts = ({handleActiveBtn,selectedProduct, handleDelete, isActive}) => {
     return (
         <div className="w-2/4  my-5 ">
            <div className="flex justify-center gap-10">
@@ -11,7 +11,7 @@ const Carts = ({handleActiveBtn, isActive}) => {
            </div>
           <div className=" flex justify-center my-3">
           {
-            isActive?<Cart></Cart>:<About></About>
+            isActive?<Cart handleDelete={ handleDelete} selectedProduct={selectedProduct}></Cart>:<About></About>
            }
           </div>
         </div>
@@ -19,6 +19,8 @@ const Carts = ({handleActiveBtn, isActive}) => {
 };
 Carts.propTypes = {
     handleActiveBtn:PropTypes.func,
-    isActive:PropTypes.bool
+    isActive:PropTypes.bool,
+    selectedProduct:PropTypes.object,
+    handleDelete:PropTypes.func
 };
 export default Carts;

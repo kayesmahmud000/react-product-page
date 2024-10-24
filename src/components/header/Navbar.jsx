@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 
-
-const Navbar = () => {
+const Navbar = ({selectedProduct}) => {
     return (
         <div className="navbar max-w-5xl border-b-2 mx-auto bg-base-100">
   <div className="navbar-start">
@@ -15,11 +15,14 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end gap-3">
-    <p>cart 0</p>
+    <p>cart {selectedProduct.length}</p>
     <p>$ 500</p>
   </div>
 </div>
     );
 };
+Navbar.propTypes={
+    selectedProduct:PropTypes.func
+}
 
 export default Navbar;

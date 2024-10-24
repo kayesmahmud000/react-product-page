@@ -1,7 +1,7 @@
 
 import PropTypes from 'prop-types';
 
-const SingleProduct = ({product}) => {
+const SingleProduct = ({product, handleSelectedProduct}) => {
     const {name, price, img, description, category }=product
     return (
         <div>
@@ -11,7 +11,7 @@ const SingleProduct = ({product}) => {
       src={img}
       alt={description} />
   </figure>
-  <div className="card-body">
+  <div className="card-body text-center">
     <h2 className=" text-2xl font-bold">
       {name}
     </h2>
@@ -19,8 +19,8 @@ const SingleProduct = ({product}) => {
     <p className='text-xl font-bold'>${price}</p>
     <p>{category}</p>
     <div className="card-actions justify-center">
-      <button className="btn">Fashion</button>
-      <button className="btn">Products</button>
+      <button onClick={()=>handleSelectedProduct(product )} className="btn border-2 border-gray-500">Add to cart</button>
+      
     </div>
   </div>
 </div>
@@ -29,7 +29,8 @@ const SingleProduct = ({product}) => {
 };
 
 SingleProduct.propTypes = {
-    product:PropTypes.object
+    product:PropTypes.object,
+    handleSelectedProduct:PropTypes.func
 };
 
 export default SingleProduct;

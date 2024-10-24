@@ -1,13 +1,16 @@
 import Navbar from "./Navbar";
+import PropTypes from 'prop-types';
 
-
-const Header = () => {
+const Header = ({selectedProduct}) => {
     return (
         <div>
-            <Navbar></Navbar>
+            <Navbar selectedProduct={selectedProduct}></Navbar>
             
         </div>
     );
 };
+Header.propTypes={
+    selectedProduct:PropTypes.func
+}
 
 export default Header;
